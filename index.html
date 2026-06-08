@@ -10,8 +10,528 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
-  <link rel="stylesheet" crossorigin href="/assets/index-D4U4Urab.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e2e8f0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Glass Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-outline {
+            border: 1px solid #3b82f6;
+            background: transparent;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #3b82f6;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59,130,246,0.15), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-greeting {
+            font-size: 1rem;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-role {
+            font-size: 1.2rem;
+            color: #60a5fa;
+            margin-bottom: 24px;
+            font-weight: 500;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .role-text {
+            display: inline-block;
+        }
+
+        .role-cursor {
+            display: inline-block;
+            width: 3px;
+            margin-left: 4px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-description {
+            color: #cbd5e1;
+            margin-bottom: 32px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-photo {
+            flex: 0.8;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-photo img {
+            max-width: 280px;
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+            border: 2px solid rgba(59,130,246,0.3);
+            transition: transform 0.3s;
+        }
+
+        .hero-photo img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Section styles */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 56px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            border-radius: 3px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        /* Experience & Education cards */
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .exp-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .exp-icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .exp-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            color: #f1f5f9;
+        }
+
+        .exp-sub {
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .exp-list {
+            padding-left: 20px;
+            color: #cbd5e1;
+        }
+
+        .exp-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Education cards */
+        .edu-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .edu-card:hover {
+            transform: translateX(5px);
+            border-color: #3b82f6;
+        }
+
+        .edu-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #f1f5f9;
+        }
+
+        .edu-meta {
+            color: #60a5fa;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #f1f5f9;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #60a5fa;
+            border: 1px solid rgba(59,130,246,0.3);
+        }
+
+        .project-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            color: #3b82f6;
+            letter-spacing: 1px;
+        }
+
+        /* Contact section */
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .contact-item {
+            min-width: 180px;
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 12px;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #60a5fa;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 32px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* Animation on scroll */
+        [data-aos] {
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            nav {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .hero-role {
+                font-size: 1rem;
+                min-height: 70px;
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -34,7 +554,7 @@
             <div class="hero-content" data-aos="fade-up">
                 <div class="hero-text">
                     <div class="hero-greeting">Hi, I'm</div>
-                    <h1 class="smaller-name">Md Nafiur Rahman Konok</h1>
+                    <h1>Md Nafiur Rahman Konok</h1>
                     <div class="hero-role">
                         <span class="role-text"></span>
                         <span class="role-cursor">|</span>
@@ -46,7 +566,7 @@
                     </div>
                 </div>
                 <div class="hero-photo">
-                    <img src="/assets/dp(without%20bg)%202-CNterGYw.png" alt="Md Nafiur Rahman Konok">
+                    <img src="/images/dp(without%20bg)%202.png" alt="Md Nafiur Rahman Konok">
                 </div>
             </div>
         </div>
@@ -241,7 +761,76 @@
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<!-- Custom JS -->
-<script src="/js/main.js"></script>
+<script>
+    // Initialize AOS animations
+    AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true,
+        offset: 50
+    });
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('.nav-links a, .hero-buttons .btn-primary').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // Role transition effect (typing animation)
+    const roles = [
+        "Middleware & Database Professional",
+        "Executive Business Analyst",
+        "Technology Specialist",
+        "Backend Developer",
+        "AI & DevOps Enthusiast"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const roleElement = document.querySelector('.role-text');
+        if (!roleElement) return;
+        
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            roleElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 500);
+                return;
+            }
+            setTimeout(typeEffect, 50);
+        } else {
+            roleElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentRole.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 100);
+                }, 2000);
+                return;
+            }
+            setTimeout(typeEffect, 80);
+        }
+    }
+
+    // Start the typing effect
+    setTimeout(typeEffect, 500);
+</script>
 </body>
 </html>
