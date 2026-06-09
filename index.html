@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
         * {
             margin: 0;
@@ -106,6 +105,15 @@
             color: #60a5fa;
         }
 
+        /* Active link styling */
+        .nav-links a.active {
+            color: #60a5fa;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
         /* Buttons */
         .btn-primary {
             background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -184,7 +192,8 @@
             letter-spacing: 2px;
         }
 
-        .hero-text h1 {
+        /* Smaller name style */
+        .hero-text h1.smaller-name {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 12px;
@@ -195,6 +204,7 @@
             color: transparent;
         }
 
+        /* Role typing animation styles */
         .hero-role {
             font-size: 1.2rem;
             color: #60a5fa;
@@ -277,6 +287,21 @@
             height: 3px;
             background: linear-gradient(90deg, #3b82f6, #a855f7);
             border-radius: 3px;
+        }
+
+        /* Glass cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         /* About */
@@ -516,7 +541,7 @@
                 flex-direction: column-reverse;
                 text-align: center;
             }
-            .hero-text h1 {
+            .hero-text h1.smaller-name {
                 font-size: 1.8rem;
             }
             .hero-role {
@@ -554,7 +579,7 @@
             <div class="hero-content" data-aos="fade-up">
                 <div class="hero-text">
                     <div class="hero-greeting">Hi, I'm</div>
-                    <h1>Md Nafiur Rahman Konok</h1>
+                    <h1 class="smaller-name">Md Nafiur Rahman Konok</h1>
                     <div class="hero-role">
                         <span class="role-text"></span>
                         <span class="role-cursor">|</span>
@@ -566,7 +591,7 @@
                     </div>
                 </div>
                 <div class="hero-photo">
-                    <img src="/images/dp(without%20bg)%202.png" alt="Md Nafiur Rahman Konok">
+                    <img src="/assets/dp(without%20bg)%202-CNterGYw.png" alt="Md Nafiur Rahman Konok">
                 </div>
             </div>
         </div>
@@ -578,10 +603,10 @@
             <h2 class="section-title" data-aos="fade-up">About Me</h2>
             <div class="about-content" data-aos="fade-up" data-aos-delay="100">
                 <p><strong>Legacy wisdom. Modern tools. Future mindset.</strong></p>
-                <p>I'm Md Nafiur Rahman Konok, an IT professional who started at the ground level — monitoring real-time systems for Grameenphone at eGeneration PLC, then moving into business analysis at US Bangla Airlines, and now serving as a Junior Engineer managing Oracle, WebLogic, JBoss/WildFly, and Tomcat at Express System Limited.</p>
-                <p>That unusual path — from NOC to business analysis to database & middleware engineering — gave me something rare. I don't just see systems. I see users, KPIs, incidents, and root causes. I understand reliability because I've lived through major incidents. I understand business value because I've tracked booking values and partner satisfaction scores.</p>
-                <p>Today, I specialize in backend engineering and middleware operations while actively building DevOps skills — CI/CD, Docker, Kubernetes, and automation. I'm equally comfortable running health checks on WebLogic, patching Oracle databases, or exploring RAG pipelines with Python.</p>
-                <p>I'm looking for a forward-thinking organization where I can bridge legacy wisdom with modern cloud-native tools — and grow into AI and automation.</p>
+                <p>I'm Md Nafiur Rahman Konok, an IT professional who started at the ground level, monitoring real-time systems for Grameenphone at eGeneration PLC, then moving into business analysis at US Bangla Airlines, and now serving as a Junior Engineer managing Oracle, WebLogic, JBoss/WildFly, and Tomcat at Express System Limited.</p>
+                <p>That unusual path, from NOC to business analysis to database & middleware engineering, gave me something rare. I don't just see systems. I see users, KPIs, incidents, and root causes. I understand reliability because I've lived through major incidents. I understand business value because I've tracked booking values and partner satisfaction scores.</p>
+                <p>Today, I specialize in backend engineering and middleware operations while actively building DevOps skills like CI/CD, Docker, Kubernetes, and automation. I'm equally comfortable running health checks on WebLogic, patching Oracle databases, or exploring RAG pipelines with Python.</p>
+                <p>I'm looking for a forward-thinking organization where I can bridge legacy wisdom with modern cloud-native tools and grow into AI and automation.</p>
             </div>
         </div>
     </section>
@@ -598,18 +623,7 @@
                         <div class="exp-sub">Junior Engineer - Database & Middleware</div>
                         <div class="exp-date">May 2026 – Present</div>
                         <ul class="exp-list">
-                            <li>Installed, configured, and maintained JBoss/WildFly, WebLogic, and Tomcat application servers for Grameenphone systems</li>
-                            <li>Managed Oracle WebLogic middleware, including SSL certificate configuration, security policy setup, and role management</li>
-                            <li>Administered Oracle BI Publisher, ensuring reliable reporting services across OS platforms</li>
-                            <li>Performed routine and ad-hoc health checks on application servers to proactively resolve performance or availability issues</li>
-                            <li>Deployed applications across Test, UAT, and Production environments following Change Management practices at Grameenphone</li>
-                            <li>Ensured PCI DSS compliance by enforcing strict access controls on middleware and databases</li>
-                            <li>Collaborated with cross-functional teams (Dev, QA, Ops) to resolve performance issues and document configurations</li>
-                            <li>Monitored and verified scheduled and on-demand database backups, ensuring recovery readiness</li>
-                            <li>Tracked and resolved incidents using the Symphony Summit tool</li>
-                            <li>Performed index rebuilding, gathering statistics, and patching Oracle databases to optimize performance for Grameenphone</li>
-                            <li>Identified and resolved blocking/locking sessions and long-running queries</li>
-                            <li>Handled backup and restoration tasks for Oracle databases</li>
+                            <p>Installed, configured, and maintained JBoss/WildFly, WebLogic, and Tomcat for Grameenphone systems, managing SSL, security policies, and Oracle BI Publisher. Performed routine health checks, deployed applications across Test, UAT, and Production following Change Management, and ensured PCI DSS compliance. Collaborated with cross-functional teams, monitored backups, tracked incidents via Symphony Summit, and optimized Oracle databases through index rebuilding, statistics gathering, patching, and resolving blocking sessions and long-running queries.</p>
                         </ul>
                     </div>
                 </div>
@@ -620,14 +634,7 @@
                         <div class="exp-sub">Executive Business Analyst</div>
                         <div class="exp-date">October 2025 – May 2026</div>
                         <ul class="exp-list">
-                            <li>Work with product managers and developers to define user requirements for the booking platform</li>
-                            <li>Suggest feature improvements — filters, smart recommendations, cancellation policies, loyalty points</li>
-                            <li>Track key KPIs (average booking value, customer acquisition cost, cancellation rate, partner satisfaction score)</li>
-                            <li>Analyze commission structures and recommend pricing strategies for hotel partners</li>
-                            <li>Suggest promotional campaigns (flash sales, bundle with flights, etc.) to increase bookings</li>
-                            <li>Find patterns in popular destinations, peak seasons, and high-demand hotels</li>
-                            <li>Map and improve the end-to-end booking workflow — from search to post-booking service</li>
-                            <li>Work with tech and design teams to turn insights into action</li>
+                            <p>Worked with product managers and developers to define user requirements for the booking platform, suggesting feature improvements like filters, smart recommendations, cancellation policies, and loyalty points. Tracked key KPIs including average booking value, customer acquisition cost, cancellation rate, and partner satisfaction score. Analyzed commission structures, recommended pricing strategies, and suggested promotional campaigns such as flash sales and flight bundles to increase bookings. Identified patterns in popular destinations, peak seasons, and high-demand hotels, while mapping and improving the end-to-end booking workflow from search to post-booking service. Collaborated with tech and design teams to turn insights into action.</p>
                         </ul>
                     </div>
                 </div>
@@ -638,17 +645,7 @@
                         <div class="exp-sub">Technology Specialist</div>
                         <div class="exp-date">January 2025 – September 2025</div>
                         <ul class="exp-list">
-                            <li>Operation, maintenance, and monitoring of real-time critical systems of GP and identification of any failures</li>
-                            <li>Provide operational support for both the infra and application domains</li>
-                            <li>L1 administration of Linux and Windows servers for smooth operation of IT infrastructure and enterprise applications</li>
-                            <li>Closely monitor all gold services of Grameenphone under Wipro Scope — prepare daily network reports, backup reports, Linux server health checks, and on-demand reports</li>
-                            <li>Participate in and coordinate daily change management activities for smooth system operation</li>
-                            <li>Involvement with incident management, major incident report preparation, and RCA documentation</li>
-                            <li>Resolution and management of GP customer complaints through Single Ticketing System (STS)</li>
-                            <li>Ensure customer satisfaction by solving ad-hoc requests and service requests within SLA</li>
-                            <li>Perform regular Active Directory help desk support for clients and Wipro employees</li>
-                            <li>Lead client meetings for KT sessions and IT incident calls</li>
-                            <li>Weekly governance report preparation and presentation to stakeholders</li>
+                            <p>Operated, maintained, and monitored real-time critical systems of Grameenphone, identifying failures while providing operational support for both infrastructure and application domains. Performed L1 administration of Linux and Windows servers, closely monitoring all gold services under Wipro Scope, preparing daily network reports, backup reports, Linux server health checks, and on-demand reports. Participated in and coordinated daily change management activities for smooth system operation, with involvement in incident management, major incident report preparation, and RCA documentation. Resolved GP customer complaints through the Single Ticketing System (STS), ensuring customer satisfaction by solving ad-hoc requests and service requests within SLA. Performed regular Active Directory help desk support for clients and Wipro employees, led client meetings for KT sessions and IT incident calls, and prepared weekly governance reports for stakeholder presentations.</p>
                         </ul>
                     </div>
                 </div>
@@ -757,7 +754,7 @@
 </main>
 
 <footer>
-    <p>© 2025 Md Nafiur Rahman Konok — Built with modern HTML/CSS | Let's connect</p>
+    <p>© 2025 Md Nafiur Rahman Konok | Let's connect</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -783,6 +780,35 @@
             }
         });
     });
+
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function updateActiveLink() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
 
     // Role transition effect (typing animation)
     const roles = [
